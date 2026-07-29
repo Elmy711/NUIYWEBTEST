@@ -46,7 +46,7 @@ bash nuiytest.sh -u <url> [opsi]
 
 ```bash
 bash nuiytest.sh -u https://example.com -n 500 -c 20
-
+bash nuiytest.sh -u https://regina.base44.app/ -n 300 -c 100 -b "session=abc123" -r https://google.com -j 0.5 -R 5
 bash nuiytest.sh -u https://api.example.com/login \
   -m POST -d '{"user":"a"}' \
   -H "Content-Type: application/json" \
