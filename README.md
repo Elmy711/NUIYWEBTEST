@@ -19,13 +19,13 @@ Script bash sederhana berbasis `curl` untuk load testing sebuah URL/endpoint.
 ## Instalasi
 
 ```bash
-chmod +x web-load-tester.sh
+chmod +x nuiytest.sh
 ```
 
 ## Penggunaan
 
 ```bash
-./web-load-tester.sh -u <url> [opsi]
+bash nuiytest.sh -u <url> [opsi]
 ```
 
 | Opsi | Keterangan | Default |
@@ -45,14 +45,10 @@ chmod +x web-load-tester.sh
 ## Contoh
 
 ```bash
-./web-load-tester.sh -u https://example.com -n 500 -c 20
+bash nuiytest.sh -u https://example.com -n 500 -c 20
 
-./web-load-tester.sh -u https://api.example.com/login \
+bash nuiytest.sh -u https://api.example.com/login \
   -m POST -d '{"user":"a"}' \
   -H "Content-Type: application/json" \
   -b "session=abc123" -j 0.5 -R 3
 ```
-
-## Catatan
-
-Gunakan hanya pada sistem/endpoint milik sendiri atau yang sudah diberi izin untuk diuji.
