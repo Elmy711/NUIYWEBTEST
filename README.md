@@ -1,11 +1,9 @@
-# Web Load Tester
-
-Script bash sederhana berbasis `curl` untuk load testing sebuah URL/endpoint.
+# nuiytwebest
 
 ## Fitur
 
 - Concurrency & total request configurable
-- Rotasi otomatis User-Agent (8 pilihan) & Referer (5 pilihan)
+- Rotasi otomatis User-Agent (38 pilihan) & Referer (15 pilihan)
 - 14 header default bawaan (Accept, Sec-Fetch-*, dll)
 - Support cookie, header custom, method, dan body
 - Random delay (jitter) antar request
@@ -25,7 +23,7 @@ chmod +x nuiytest.sh
 ## Penggunaan
 
 ```bash
-bash nuiytest.sh -u <url> [opsi]
+./nuiytest.sh -u <url> [opsi]
 ```
 
 | Opsi | Keterangan | Default |
@@ -45,10 +43,14 @@ bash nuiytest.sh -u <url> [opsi]
 ## Contoh
 
 ```bash
-bash nuiytest.sh -u https://example.com -n 500 -c 20
-bash nuiytest.sh -u https://regina.base44.app/ -n 300 -c 100 -b "session=abc123" -r https://google.com -j 0.5 -R 5
-bash nuiytest.sh -u https://api.example.com/login \
+./nuiytest.sh -u https://example.com -n 500 -c 20
+
+./nuiytest.sh -u https://api.example.com/login \
   -m POST -d '{"user":"a"}' \
   -H "Content-Type: application/json" \
   -b "session=abc123" -j 0.5 -R 3
 ```
+
+## Catatan
+
+Gunakan hanya pada sistem/endpoint milik sendiri atau yang sudah diberi izin untuk diuji.
