@@ -1,15 +1,5 @@
 #!/usr/bin/env bash
-#
-# web-load-tester.sh
-# Load tester sederhana berbasis curl untuk menguji beban sebuah URL.
-#
-# Penggunaan:
-#   ./web-load-tester.sh -u <url> [-n total_requests] [-c concurrency] [-m method] [-H "header"] [-d "body"] [-t timeout]
-#
-# Contoh:
-#   ./web-load-tester.sh -u https://example.com -n 500 -c 20
-#   ./web-load-tester.sh -u https://api.example.com/login -m POST -d '{"user":"a"}' -H "Content-Type: application/json" -n 200 -c 10
-#
+
 set -euo pipefail
 
 URL=""
@@ -137,7 +127,6 @@ echo " Method       : $METHOD"
 echo " Total Req    : $TOTAL"
 echo " Concurrency  : $CONCURRENCY"
 echo " Timeout (s)  : $TIMEOUT"
-echo " Output dir   : $OUTDIR"
 echo " Default Hdr  : $((${#DEFAULT_HEADERS[@]}/2)) header bawaan aktif (edit di bagian DEFAULT_HEADERS)"
 echo " User-Agent   : rotasi acak (${#USER_AGENTS[@]} pilihan)"
 echo " Referer      : $([[ -n "$REFERER" ]] && echo "$REFERER (tetap)" || echo "rotasi acak (${#REFERERS[@]} pilihan)")"
@@ -266,5 +255,6 @@ awk '{print $1}' "$OUTDIR/results.txt" | sort | uniq -c | sort -rn | while read 
   echo "   $code : $count"
 done
 echo "=================================================="
-echo " Detail mentah tersimpan di: $OUTDIR/results.txt"
-echo "=================================================="
+
+# Bersihkan semua file sementara — tidak ada hasil yang disimpan ke disk.
+rm -rf "$OUTDIR"
